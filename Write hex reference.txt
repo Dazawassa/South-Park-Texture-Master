@@ -1,0 +1,18 @@
+# Open the file in binary mode
+with open("file.bin", "rb+") as f:
+    # Read the contents of the file into a bytearray
+    file_content = bytearray(f.read())
+    
+    # Find the index of the hexadecimal value you want to change
+    index = file_content.index(0x12)
+    
+    # Change the hexadecimal value to a new value
+    new_value = 0x34
+    file_content[index] = new_value
+    
+    # Write the modified bytearray back to the file
+    f.seek(0)  # Set the file pointer back to the beginning
+    f.write(file_content)
+
+
+In this example, we open the file "file.bin" in binary mode using the "rb+" mode, which allows us to read and write the file. We read the contents of the file into a bytearray using the read() method. Then, we find the index of the hexadecimal value we want to change using the index() method. We change the value to a new value, and then write the modified bytearray back to the file using the write() method. The seek() method is used to set the file pointer back to the beginning before writing the modified bytearray.
